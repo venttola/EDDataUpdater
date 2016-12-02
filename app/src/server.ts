@@ -3,6 +3,7 @@
 import * as express from "express";
 
 import * as testRoute from "./routes/testRoute";
+import * as system from "./routes/system";
 import Promise from "ts-promise";
 
 class Server {
@@ -22,8 +23,9 @@ class Server {
 
 	    // Define routes here
 	    var test: testRoute.TestRoute = new testRoute.TestRoute();
-	    router.get("/", test.test);
-
+	    var systemCheck: system.SystemRoute = new system.SystemRoute();
+	    router.get("/api/test", test.test);
+	    router.get("/api/system/:name", systemCheck.checkSystemValidity);
 	    this.app.use(router);
 	}
 }

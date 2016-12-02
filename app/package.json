@@ -22,7 +22,8 @@
     "@types/node": "^6.0.46",
     "@types/serve-static": "^1.7.31",
     "express": "^4.14.0",
-    "ts-promise": "^0.3.4"
+    "ts-promise": "^0.3.4",
+    "web-request": "^1.0.7"
   },
   "devDependencies": {
     "gulp": "^3.9.1",
