@@ -13,4 +13,4 @@ module Routes {
   }
 }
 
-export = Routes;
+export default Routes;

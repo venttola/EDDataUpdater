@@ -2,7 +2,7 @@
 
 import * as express from "express";
 
-import * as testRoute from "./routes/testRoute";
+//import * as testRoute from "./routes/testRoute";
 import * as system from "./routes/system";
 import Promise from "ts-promise";
 
@@ -22,9 +22,9 @@ class Server {
 	    router = express.Router();
 
 	    // Define routes here
-	    var test: testRoute.TestRoute = new testRoute.TestRoute();
-	    var systemCheck: system.SystemRoute = new system.SystemRoute();
-	    router.get("/api/test", test.test);
+	    //var test: testRoute.TestRoute = new testRoute.TestRoute();
+	    var systemCheck: system.Routes.SystemRoute = new system.Routes.SystemRoute();
+	   // router.get("/api/test", test.test);
 	    router.get("/api/system/:name", systemCheck.checkSystemValidity);
 	    router.get("/api/system/:name/:amount", systemCheck.getNearestNeighbours);
 	    this.app.use(router);
@@ -32,4 +32,5 @@ class Server {
 }
 
 var server = Server.init();
+//export default Server;
 export = server.app;

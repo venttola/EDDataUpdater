@@ -20,20 +20,21 @@ module Routes {
     	var parameter : string = "systems?systemName=" + req.params.name;
      	var result = await WebRequest.get(EDSM_URL_BASE_OLD + parameter);
 
-     	console.log(result.body);
-  	 	res.send(result.body);
+     	console.log(result.content);
+  	 	res.send(result.content);
     }
 
     public async getNearestNeighbours(req: express.Request, res: express.Response, next: express.NextFunction) {
     	console.log("Getting " + req.params.amount + "nearest neighbours for" + req.params.name);
     	var parameter : string = "sphere-systems?systemName" + req.params.name + "&radius=20" + "&coods=1";
     	var result = await WebRequest.get(EDSM_URL_BASE_OLD + parameter);
-    	console.log(result.body);
+    	console.log(result.content);
     	//Add here a parsing function to figure out n nearest neighbours.
-    	res.send(result.body);
+    	res.send(result.content);
 
     }
   }
-}
 
-export = Routes;
+}
+export { Routes };
+//export = Routes;

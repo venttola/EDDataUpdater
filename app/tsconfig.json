@@ -4,9 +4,11 @@
     ],
     "compilerOptions": {
         "noImplicitAny": true,
-        "target": "es5",
+        "target": "es6",
+        "module": "none",
         "rootDir": "src",
         "outDir": ".",
-        "typeRoots": [ "node_modules/@types" ]
+        "typeRoots": [ "node_modules/@types" ],
+        "moduleResolution": "node"
     }
 }
