@@ -26,6 +26,7 @@ class Server {
 	    var systemCheck: system.SystemRoute = new system.SystemRoute();
 	    router.get("/api/test", test.test);
 	    router.get("/api/system/:name", systemCheck.checkSystemValidity);
+	    router.get("/api/system/:name/:amount", systemCheck.getNearestNeighbours);
 	    this.app.use(router);
 	}
 }
