@@ -16,12 +16,18 @@ module Routes {
   export class SystemRoute {
 
     public async checkSystemValidity(req: express.Request, res: express.Response, next: express.NextFunction) {
-    	console.log("Checking is system " + req.params.name + " is valid.");
+    	/*
+		console.log("Checking is system " + req.params.name + " is valid.");
     	var parameter : string = "systems?systemName=" + req.params.name;
      	var result = await WebRequest.get(EDSM_URL_BASE_OLD + parameter);
 
      	console.log(result.content);
   	 	res.send(result.content);
+		*/
+		console.log("Return dummy data");
+		let nearestSystems = [{"name": "System A"}, {"name": "System B"}];
+		res.header("Content-Type", "application/json");
+		res.send(JSON.stringify(nearestSystems));
     }
 
     public async getNearestNeighbours(req: express.Request, res: express.Response, next: express.NextFunction) {

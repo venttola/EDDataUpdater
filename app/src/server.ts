@@ -31,6 +31,10 @@ class Server {
 	    router.get("/api/system/:name/:amount", systemsAPI.getNearestNeighbours);
 	    router.get("/api/ships/", shipsAPI.getShipListing);
 	    router.post("/api/ships/:system", shipsAPI.sendCorrection);
+
+		router.get("/",
+		(req: express.Request, res: express.Response, next: express.NextFunction) => res.sendFile("index.html", {root: __dirname + "/../client"}));
+
 	    this.app.use(router);
 	}
 }

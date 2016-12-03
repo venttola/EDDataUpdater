@@ -1,0 +1,17 @@
+<div *ngIf="system">
+    <label>System name:</label>
+    <input [(ngModel)]="system.name" placeholder="name" />
+    <button (click)="validate()">Send</button>
+</div>
+
+<div *ngIf="error">
+    <p>Not found</p>
+</div>
+
+<div *ngIf="nearestSystems">
+    <ul>
+        <li *ngFor="let sys of nearestSystems">
+            {{sys.name}}
+        </li>
+    </ul>
+</div>

@@ -9,6 +9,7 @@
         "rootDir": "src",
         "outDir": ".",
         "typeRoots": [ "node_modules/@types" ],
-        "moduleResolution": "node"
+        "moduleResolution": "node",
+        "experimentalDecorators": true
     }
 }
