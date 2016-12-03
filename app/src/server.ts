@@ -28,9 +28,8 @@ class Server {
 	    var shipsAPI : ships.Routes.ShipsRoute = new ships.Routes.ShipsRoute();
 	   // router.get("/api/test", test.test);
 	    router.get("/api/system/:name", systemsAPI.checkSystemValidity);
-	    router.get("/api/system/:name/:amount", systemsAPI.getNearestNeighbours);
 	    router.get("/api/ships/", shipsAPI.getShipListing);
-	    router.post("/api/ships/:system", shipsAPI.sendCorrection);
+	    router.post("/api/ships/", shipsAPI.sendCorrection);
 
 		router.get("/",
 		(req: express.Request, res: express.Response, next: express.NextFunction) => res.sendFile("index.html", {root: __dirname + "/../client"}));

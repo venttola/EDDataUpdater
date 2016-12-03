@@ -24,13 +24,28 @@ module Routes {
      	console.log(result.content);
   	 	res.send(result.content);
 		*/
-		console.log("Return dummy data");
-		let nearestSystems = [{"name": "System A"}, {"name": "System B"}];
-		res.header("Content-Type", "application/json");
-		res.send(JSON.stringify(nearestSystems));
+	//	console.log("Return dummy data");
+	//	let nearestSystems = [{"name": "System A"}, {"name": "System B"}];
+	//	res.header("Content-Type", "application/json");
+	//	res.send(JSON.stringify(nearestSystems));
+
+      console.log("Checking is system " + req.params.name + " is valid.");
+      var parameter : string = "system?systemName=" + req.params.name + "\n";
+       var result = await WebRequest.get(EDSM_URL_BASE_OLD + parameter);
+      if (result.content === "[]") {
+        console.log("No system found!");
+        res.status(404).send({error: "System not found!"});
+      } else {
+        console.log("Return dummy data");
+        let nearestSystems = [{"name": "System A"}, {"name": "System B"}];
+        res.header("Content-Type", "application/json");
+        console.log(result.content);
+        res.send(JSON.stringify(nearestSystems));
+     }
+
     }
 
-    public async getNearestNeighbours(req: express.Request, res: express.Response, next: express.NextFunction) {
+    private async getNearestNeighbours(req: express.Request, res: express.Response, next: express.NextFunction) {
     	console.log("Getting " + req.params.amount + "nearest neighbours for" + req.params.name);
     	var parameter : string = "sphere-systems?systemName" + req.params.name + "&radius=20" + "&coods=1";
     	var result = await WebRequest.get(EDSM_URL_BASE_OLD + parameter);

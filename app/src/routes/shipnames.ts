@@ -1,0 +1,70 @@
+"use strict";
+
+//Missing: Assault Ship, DbS and the Beluga
+export const SYMBOLIC_SHIP_NAMES : Array <string> =
+ ["SideWinder",
+ "Adder",
+ "Anaconda",
+ "Asp",
+ "Asp_Scout",
+ "CobraMkIII",
+ "CobraMkIV",
+ "Cutter",
+ "DiamondBackXL",
+ "Eagle",
+ "Empire_Courier",
+ "Empire_Eagle",
+ "Empire_Trader",
+ "Federation_Corvette",
+ "Federation_Dropship",
+ "Federation_Dropship_MkII",
+ "Federation_Gunship",
+ "FerDeLance",
+ "Hauler",
+ "Independant_Trader",
+ "Orca",
+ "Python",
+ "Type6",
+ "Type7",
+ "Type9",
+ "Viper",
+ "Viper_MkIV",
+ "Vulture"];
+
+ export const ACTUAL_SHIP_NAMES : Array <string> =
+ ["Sidewinder",
+ "Adder",
+ "Anaconda",
+ "Asp Explorer",
+ "Asp Scout",
+ "Cobra MkIII",
+ "Cobra MkIV",
+ "Imperial Cutter",
+ "Diamondback Explorer",
+ "Eagle",
+ "Imperial Courier",
+ "Imperial Eagle",
+ "Empire_Trader",
+ "Federal Corvette",
+ "Federal Dropship",
+ "Federation_Dropship_MkII",
+ "Federal Gunship",
+ "Fer-de-Lance",
+ "Hauler",
+ "Independant_Trader",
+ "Orca",
+ "Python",
+ "Type-6 Transporter",
+ "Type-7 Transporter",
+ "Type-9 Heavy",
+ "Viper MkIII",
+ "Viper MkIV",
+ "Vulture",
+ "Beluga Liner",
+ "Diamondback Scout",
+ "Federal Assault Ship"];
+
+ export function translateActualToSymbolic(name: any) {
+
+ 		return SYMBOLIC_SHIP_NAMES[ACTUAL_SHIP_NAMES.indexOf(name)];
+ 	}
