@@ -10,15 +10,20 @@ import { SystemValidationService } from "../services/system-validation.service";
 export class SystemComponent implements OnInit {
     @Input() system: System;
     nearestSystems: System[];
+    isSystemValidated: boolean;
     error: any;
 
     constructor(private systemService: SystemValidationService) {
-
+        this.isSystemValidated = false;
     }
 
     validateSystem(): void {
         this.systemService.validate(this.system.name)
-                          .then(systems => this.nearestSystems = systems)
+                          .then(systems => {
+                              this.nearestSystems = systems
+                              this.isSystemValidated = true;
+                              this.error = null;
+                          })
                           .catch(error => this.error = error);
     }
 

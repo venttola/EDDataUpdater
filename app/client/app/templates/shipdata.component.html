@@ -1,28 +1,30 @@
-<div>
-    <label>Station name:</label>
-    <input [(ngModel)]="station.name" placeholder="station name" />
-</div>
-
-<div>
-    <label>Ship name:</label>
+<div *ngIf="isSystemValidated">
     <div>
-        <select [(ngModel)]="selectedShip">
-            <option *ngFor="let s of shiplist" [text]="s.name" [ngValue]="s"></option>
-        </select>
+        <label>Station name:</label>
+        <input [(ngModel)]="station.name" placeholder="station name" />
     </div>
-    <button (click)="addShip(selectedShip)">Add</button>
-</div>
 
-<div *ngIf="addedShips">
-    <ul>
-        <li *ngFor="let ship of addedShips">
-            {{ship.name}}
-        </li>
-    </ul>
-</div>
+    <div>
+        <label>Ship name:</label>
+        <div>
+            <select [(ngModel)]="selectedShip">
+                <option *ngFor="let s of shiplist" [text]="s.name" [ngValue]="s"></option>
+            </select>
+        </div>
+        <button (click)="addShip(selectedShip)">Add</button>
+    </div>
 
-<div *ngIf="error">
-    <p>Could not be sent</p>
-</div>
+    <div *ngIf="addedShips">
+        <ul>
+            <li *ngFor="let ship of addedShips">
+                {{ship.name}}
+            </li>
+        </ul>
+    </div>
 
-<button (click)="sendData()">Send</button>
+    <div *ngIf="error">
+        <p>Could not be sent</p>
+    </div>
+
+    <button (click)="sendData()">Send</button>
+</div>
