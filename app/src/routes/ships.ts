@@ -22,6 +22,7 @@ module Routes {
       var form: JSON = await WebRequest.json<any>("https://raw.githubusercontent.com/jamesremuscat/EDDN/master/schemas/shipyard-v2.0.json");
       console.log("Updating ship listing");
       console.log(req);
+      console.log(req.body);
       //console.log (ShipNames.translateActualToSymbolic(req.params.data));
       res.send("bar");
     }

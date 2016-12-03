@@ -6,6 +6,7 @@ import * as express from "express";
 import * as system from "./routes/system";
 import * as ships from "./routes/ships";
 import Promise from "ts-promise";
+import * as bodyparser from "body-parser";
 
 class Server {
 	public app: express.Application;
@@ -34,6 +35,7 @@ class Server {
 		router.get("/",
 		(req: express.Request, res: express.Response, next: express.NextFunction) => res.sendFile("index.html", {root: __dirname + "/../client"}));
 
+		this.app.use(bodyparser.json()); // Needs to be set before router
 	    this.app.use(router);
 	}
 }
