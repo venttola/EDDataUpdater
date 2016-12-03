@@ -4,8 +4,12 @@ import { FormsModule }   from "@angular/forms";
 import { HttpModule } from "@angular/http";
 
 import { AppComponent }  from "./app.component";
+
 import { SystemComponent } from "./components/system.component"
 import { SystemValidationService } from "./services/system-validation.service";
+
+import { ShipDataComponent } from "./components/shipdata.component";
+import { ShipDataService } from "./services/shipdata.service";
 
 @NgModule({
   imports:      [ 
@@ -15,10 +19,12 @@ import { SystemValidationService } from "./services/system-validation.service";
   ],
   declarations: [
     AppComponent,
-    SystemComponent
+    SystemComponent,
+    ShipDataComponent
   ],
   providers: [
-    SystemValidationService
+    SystemValidationService,
+    ShipDataService
   ],
   bootstrap: [ 
     AppComponent 

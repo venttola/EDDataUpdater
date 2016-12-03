@@ -1,7 +1,7 @@
 <div *ngIf="system">
     <label>System name:</label>
-    <input [(ngModel)]="system.name" placeholder="name" />
-    <button (click)="validate()">Send</button>
+    <input [(ngModel)]="system.name" placeholder="system name" />
+    <button (click)="validateSystem()">Validate</button>
 </div>
 
 <div *ngIf="error">

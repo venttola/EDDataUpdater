@@ -16,7 +16,7 @@ export class SystemComponent implements OnInit {
 
     }
 
-    validate(): void {
+    validateSystem(): void {
         this.systemService.validate(this.system.name)
                           .then(systems => this.nearestSystems = systems)
                           .catch(error => this.error = error);
