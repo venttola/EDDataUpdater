@@ -34,6 +34,8 @@ class Server {
 
 		router.get("/",
 		(req: express.Request, res: express.Response, next: express.NextFunction) => res.sendFile("index.html", {root: __dirname + "/../client"}));
+		router.get("/doc",
+		(req: express.Request, res: express.Response, next: express.NextFunction) => res.sendFile("index.html", {root: __dirname + "/../doc"}));
 
 		this.app.use(bodyparser.json()); // Needs to be set before router
 	    this.app.use(router);

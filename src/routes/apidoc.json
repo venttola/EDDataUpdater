@@ -1,0 +1,11 @@
+{
+  "name": "EDData Updater API",
+  "version": "1.0.0",
+  "description": "EDDATA Updater API documentation",
+  "title": "EDData Updater API",
+  "url" : "https://eddata.herokuapp.com/",
+  "header": {
+    "title": "EDData Updater API",
+    "filename": "README.md"
+  }
+}

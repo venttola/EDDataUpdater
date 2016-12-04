@@ -5,9 +5,8 @@
   "main": "server.js",
   "scripts": {
     "test": "test",
-    "heroku-postbuild": "gulp compile; cd client; npm install; npm run tsc",
-    "start": "node ./bin/start.js",
-    "tsc": "tsc"
+    "heroku-postbuild": "gulp compile; gulp apidoc; cd client; npm install; npm run tsc",
+    "start": "node ./bin/start.js"
   },
   "repository": {
     "type": "git",
@@ -20,8 +19,8 @@
   },
   "homepage": "https://github.com/venttola/EDDataUpdater#readme",
   "engines": {
-  	"node": "6.9.1",
-  	"npm": "3.10.8"
+    "node": "6.9.1",
+    "npm": "3.10.8"
   },
   "dependencies": {
     "@types/body-parser": "0.0.33",
@@ -30,19 +29,19 @@
     "@types/serve-static": "^1.7.31",
     "body-parser": "^1.15.2",
     "express": "^4.14.0",
-    "promise": "^7.1.1",
-    "ts-promise": "^0.3.4",
-    "web-request": "^1.0.7",
     "gulp": "^3.9.1",
+    "gulp-apidoc": "^0.2.4",
     "gulp-cached": "^1.1.0",
     "gulp-clean": "^0.3.2",
+    "gulp-develop-server": "^0.5.2",
     "gulp-tslint": "^6.1.3",
     "gulp-typescript": "^3.1.2",
+    "gulp-watch": "^4.3.10",
+    "promise": "^7.1.1",
+    "ts-promise": "^0.3.4",
     "tslint": "^3.15.1",
     "typescript": "^2.0.10",
-    "gulp-watch": "^4.3.10",
-    "gulp-develop-server": "^0.5.2"
+    "web-request": "^1.0.7"
   },
-  "devDependencies": {
-  }
+  "devDependencies": {}
 }

@@ -7,6 +7,7 @@ var port = normalizePort(process.env.PORT || 8080);
 app.set("port", port);
 
 app.use(express.static(path.join(__dirname, "../client")));
+app.use(express.static(path.join(__dirname, "../doc")));
 
 // TODO: Define database connection here
 

@@ -11,10 +11,19 @@ import * as WebRequest from "web-request";
 const EDSM_URL_BASE_OLD : string = "https://www.edsm.net/api-v1/";
 const EDSM_URL_BASE_NEW : string = "";
 
-
 module Routes {
   export class SystemRoute {
 
+    /**
+     * @api {get} api/system/:name Check system name validity
+     * @apiName CheckSystemValidity
+     * @apiGroup System
+     * 
+     * @apiParam {String} name System name
+     * 
+     * @apiSuccess {json} nearestNeighbours List of the nearest systems
+     * @apiError (404) SystemNotFound System was not found
+     */
     public async checkSystemValidity(req: express.Request, res: express.Response, next: express.NextFunction) {
     	/*
 		console.log("Checking is system " + req.params.name + " is valid.");

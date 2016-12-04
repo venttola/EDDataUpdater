@@ -5,6 +5,7 @@ var watch 	= require("gulp-watch");
 var server 	= require('gulp-develop-server');
 var cache   = require('gulp-cached');
 var clean 	= require('gulp-clean');
+var apidoc  = require('gulp-apidoc');
 
 var tsProject = ts.createProject("tsconfig.json");
 
@@ -48,6 +49,13 @@ gulp.task('server:start', function() {
 
 gulp.task('server:livereload', function() {
     gulp.watch(sourceFilePath, ['tslint', 'compile', server.restart]);
+});
+
+gulp.task('apidoc', function(done) {
+	apidoc({
+		src: "src/routes",
+		dest: "doc/"
+	}, done);
 });
 
 gulp.task('start', ['compile', 'server:start', 'server:livereload']);
