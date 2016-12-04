@@ -47,7 +47,6 @@ module Routes {
         console.log("No system found!");
         res.status(404).send({error: "System not found!"});
       } else {
-        console.log("Return dummy data");
         console.log("Getting nearest neighbours for " + req.params.name );
         //Needs some system here to actually calculate the nearest ones 
         let nearestSystems = await SystemRoute.prototype.getNearest(req.params.name);
@@ -67,10 +66,8 @@ module Routes {
               base = quote;
           }
         }
-        console.log(base);
         let systemList: SystemWithDistance[] = [];
         for (var quote of result) {
-          console.log("Checking system " + quote.name);
           let distance = await this.calculateDistance(
             Number(base.coords.x),
             Number(base.coords.y),
@@ -110,10 +107,9 @@ module Routes {
             }
             return 0;
           });
-          console.log(JSON.stringify(systemList));
           }
      //  console.log (JSON.stringify(systemList));
-        return JSON.stringify(JSON.stringify(systemList));
+        return JSON.parse(JSON.stringify(JSON.stringify(systemList)));
       }
       private async calculateDistance(x1: number, y1: number, z1: number, x2: number, y2: number, z2: number): Promise<number> {
         return Number(Math.sqrt( (x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2) + (z1 - z2) * (z1 - z2)).toFixed(2));

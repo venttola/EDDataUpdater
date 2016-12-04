@@ -1,6 +1,6 @@
 <div *ngIf="system">
     <label>System name:</label>
-    <input [(ngModel)]="system.name" placeholder="system name" />
+    <input [(ngModel)]="system.name" placeholder="System name" />
     <button (click)="validateSystem()">Validate</button>
 </div>
 
@@ -9,9 +9,10 @@
 </div>
 
 <div *ngIf="nearestSystems">
+    3 Nearest systems are:
     <ul>
         <li *ngFor="let sys of nearestSystems">
-            {{sys.name}}
+            {{sys.name}} {{sys.distance}} ly 
         </li>
     </ul>
 </div>
