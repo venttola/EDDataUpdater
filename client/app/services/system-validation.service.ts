@@ -2,7 +2,7 @@ import { Injectable } from "@angular/core";
 import { Http, Response, Headers } from "@angular/http";
 import 'rxjs/add/operator/toPromise';
 
-import { System } from "../models/System";
+import { System } from "../models/system";
 
 @Injectable()
 export class SystemValidationService {

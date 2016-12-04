@@ -31,13 +31,10 @@
     "core-js": "^2.4.1",
     "reflect-metadata": "^0.1.8",
     "rxjs": "5.0.0-beta.12",
-    "zone.js": "^0.6.26"
-  },
-  "devDependencies": {
+    "zone.js": "^0.6.26",
+    "typescript": "^2.0.10",
     "concurrently": "^3.1.0",
     "lite-server": "^2.2.2",
-    "typescript": "^2.0.10",
-
     "canonical-path": "0.0.2",
     "http-server": "^0.9.0",
     "tslint": "^3.15.1",
@@ -55,6 +52,8 @@
     "@types/node": "^6.0.46",
     "@types/jasmine": "^2.5.36",
     "@types/selenium-webdriver": "^2.53.33"
+  },
+  "devDependencies": {
   },
   "repository": {}
 }

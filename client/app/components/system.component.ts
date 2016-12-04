@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from "@angular/core";
-import { System} from "../models/System";
+import { System} from "../models/system";
 import { SystemValidationService } from "../services/system-validation.service";
 
 @Component({
