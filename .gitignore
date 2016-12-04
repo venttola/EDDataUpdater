@@ -38,4 +38,5 @@ jspm_packages
 
 app/out
 app/client/**/*.js
+!app/client/systemjs.config.js
 app/node_modules
