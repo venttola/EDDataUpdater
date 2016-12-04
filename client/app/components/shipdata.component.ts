@@ -2,6 +2,7 @@ import { Component, Input, OnInit, OnChanges, SimpleChange } from "@angular/core
 
 import { Station } from "../models/station";
 import { Ship } from "../models/ship";
+import { System } from "../models/system" 
 
 import { ShipDataService } from "../services/shipdata.service";
 
@@ -11,6 +12,7 @@ import { ShipDataService } from "../services/shipdata.service";
     templateUrl: "../templates/shipdata.component.html"
 })
 export class ShipDataComponent implements OnInit, OnChanges {
+    @Input() system: System;
     @Input() station: Station;
     @Input() isSystemValidated: boolean;
     shiplist: Ship[];
@@ -23,12 +25,14 @@ export class ShipDataComponent implements OnInit, OnChanges {
         this.station = new Station();
         this.addedShips = [];
         this.isSystemValidated = false;
-
+        //Get this from system.component somehow!
+       //this.system.name = "Sol";
         this.getShips();
     }
 
     ngOnChanges(changes: {[propKey: string]: SimpleChange}) {
         this.isSystemValidated = Boolean(changes["isSystemValidated"]);
+       // this.system = new System("system");
     }
 
     getShips(): void {
@@ -46,7 +50,7 @@ export class ShipDataComponent implements OnInit, OnChanges {
 
     sendData(): void {
         this.shipService
-            .postShips(this.addedShips, this.station)
+            .postShips(this.system.name, this.addedShips, this.station)
             .then(res => this.addedShips = [])
             .catch(error => this.error);
     }

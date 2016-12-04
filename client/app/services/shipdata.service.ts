@@ -4,6 +4,7 @@ import 'rxjs/add/operator/toPromise';
 
 import { Ship } from "../models/ship";
 import { Station } from "../models/station";
+import { System } from "../models/system" 
 
 @Injectable()
 export class ShipDataService {
@@ -17,9 +18,12 @@ export class ShipDataService {
                        let shiplist: Ship[] = [];
 
                        for(let name of response.json()) {
-                           shiplist.push(new Ship(name));
+                           if (name !== "Empire_Trader" && name !== "Independant_Trader" && name != "Federation_Dropship_MkII")
+                           {
+                             shiplist.push(new Ship(name));
+                           }
                        }
-
+                       shiplist = shiplist.sort();
                        return shiplist;
                    })
                    .catch(this.handleError);
@@ -30,14 +34,13 @@ export class ShipDataService {
         return Promise.reject(error.message || error);
     }
 
-    postShips(ships: Ship[], station: Station): Promise<number> {
-        let data = { station, ships };
+    postShips(system: string, ships: Ship[], station: Station): Promise<number> {
+        let data = {"system":{"name": system}, station, ships };
         console.log(JSON.stringify(data));
 
         let headers = new Headers({
             'Content-Type': 'application/json'
         });
-
         return this.http
                    .post(`/api/ships/`, JSON.stringify(data), { headers: headers })
                    .toPromise()

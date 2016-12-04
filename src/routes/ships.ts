@@ -9,6 +9,8 @@ import * as WebRequest from "web-request";
 import * as ShipNames from "./shipnames";
 //import ShipSubmissionForm from "../../schemas/shipyard-v2.0.json";
 //const 
+
+const UPLOAD_URL = "http://eddn-gateway.elite-markets.net:8080/upload/";
 module Routes {
   export class ShipsRoute {
 
@@ -34,13 +36,40 @@ module Routes {
      * @apiParam {List} ships List of ships available
      */
     public async sendCorrection(req: express.Request, res: express.Response, next: express.NextFunction) {
-      var form: JSON = await WebRequest.json<any>("https://raw.githubusercontent.com/jamesremuscat/EDDN/master/schemas/shipyard-v2.0.json");
+     // var form: JSON = await WebRequest.json<any>("https://raw.githubusercontent.com/jamesremuscat/EDDN/master/schemas/shipyard-v2.0.json");
       console.log("Updating ship listing");
-      console.log(req.body);
-      //console.log (ShipNames.translateActualToSymbolic(req.params.data));
-      res.send("bar");
-    }
+      let ships = req.body.ships;
+      let station: string = req.body.station.name;
+      let system = req.body.system.name;
+      let shipSymbols: string[] = [];
+      if (!station || !system) {
+        //Send error code 
+        console.log("Error, missing data");
+       res.status(400).send({error: "Missing data"});
+       // res.err("Insufficient data, update rejected");
+      } else {
 
+      for (let ship of ships){
+        //console.log(ship.name);
+        //console.log(ShipNames.translateActualToSymbolic(ship.name));
+        shipSymbols.push(ShipNames.translateActualToSymbolic(ship.name));
+      }
+      let form2 = JSON.stringify({
+         header: {
+        uploaderID: "Useless Zero",
+        softwareName: "EDDataUpdater",
+        softwareVersion: "0.0.1"},
+       message: { systemName: system,
+          stationName: station,
+          timestamp: new Date(),
+          ships: shipSymbols
+        }
+      });
+    //  console.log(form2);
+      //await WebRequest.post(UPLOAD_URL, null, form);
+      res.send("Data sent succescfully!");
+    }
+    }
   }
 }
 export { Routes };

@@ -23,6 +23,7 @@ export class SystemComponent implements OnInit {
                               this.nearestSystems = systems
                               this.isSystemValidated = true;
                               this.error = null;
+                              
                           })
                           .catch(error => this.error = error);
     }
