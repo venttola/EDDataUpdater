@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from "@angular/core";
+import { Component, Input, OnInit, OnChanges, SimpleChange } from "@angular/core";
 
 import { Station } from "../models/station";
 import { Ship } from "../models/ship";
@@ -10,20 +10,25 @@ import { ShipDataService } from "../services/shipdata.service";
     selector: "shipdata-comp",
     templateUrl: "../templates/shipdata.component.html"
 })
-export class ShipDataComponent implements OnInit {
+export class ShipDataComponent implements OnInit, OnChanges {
     @Input() station: Station;
+    @Input() isSystemValidated: boolean;
     shiplist: Ship[];
     addedShips: Ship[];
     error: any;
-    isSystemValidated: boolean;
 
     constructor(private shipService: ShipDataService) {}
 
     ngOnInit(): void {
         this.station = new Station();
         this.addedShips = [];
+        this.isSystemValidated = false;
 
         this.getShips();
+    }
+
+    ngOnChanges(changes: {[propKey: string]: SimpleChange}) {
+        this.isSystemValidated = Boolean(changes["isSystemValidated"]);
     }
 
     getShips(): void {
