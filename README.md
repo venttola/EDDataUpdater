@@ -1,4 +1,4 @@
-# EDDataUpdater
+# EDData Updater
 This is the TUT PalPo course excercise.
 
 EDDN Ship(and in future some other data as well) data updater.

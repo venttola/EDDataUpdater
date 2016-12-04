@@ -36,7 +36,7 @@ jspm_packages
 # Optional REPL history
 .node_repl_history
 
-app/out
-app/client/**/*.js
-!app/client/systemjs.config.js
-app/node_modules
+out
+node_modules
+client/**/*.js
+!client/systemjs.config.js
