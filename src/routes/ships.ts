@@ -19,7 +19,7 @@ module Routes {
      * @apiName GetShipListing
      * @apiGroup Ships
      * 
-     * @apiSuccess {List} ships List of the ships
+     * @apiSuccess {Array} ships List of the ships
      */
     public async getShipListing(req: express.Request, res: express.Response, next: express.NextFunction) {
       console.log("Returning ship listing.");
@@ -32,8 +32,11 @@ module Routes {
      * @apiName SendCorrection
      * @apiGroup Ships
      * 
-     * @apiParam {String} station Station name
-     * @apiParam {List} ships List of ships available
+     * @apiParam {JSON} system System name {"system": {"name": name }}
+     * @apiParam {JSON} station Station name {"station": {"name": name }}
+     * @apiParam {Array} ships List of ships available
+
+     * @apiError (400) BadRequest Required data is missing
      */
     public async sendCorrection(req: express.Request, res: express.Response, next: express.NextFunction) {
      // var form: JSON = await WebRequest.json<any>("https://raw.githubusercontent.com/jamesremuscat/EDDN/master/schemas/shipyard-v2.0.json");

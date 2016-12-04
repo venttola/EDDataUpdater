@@ -6,7 +6,7 @@ EDDN Ship(and in future some other data as well) data updater.
 Uses both EDSN AND EDDN to provide an easy way to update Shipyard data to EDDN
 
 User selects system he is in. 
-Backend makes a query about the system and when system is found, shows a confirmation and maybe 5 nearest neighbours.
+Backend makes a query about the system and when system is found, shows a confirmation and 3 nearest neighbours.
 
 User writes station name he is docked is (Check is this can be confirmed on EDSN for example)
 

@@ -35,7 +35,7 @@ module Routes {
      * 
      * @apiParam {String} name System name
      * 
-     * @apiSuccess {json} nearestNeighbours List of the nearest systems
+     * @apiSuccess {json} nearestNeighbours List of the 3 nearest system names and their distances form origin.
      * @apiError (404) SystemNotFound System was not found
      */
     public async checkSystemValidity(req: express.Request, res: express.Response, next: express.NextFunction) {
@@ -108,8 +108,8 @@ module Routes {
             return 0;
           });
           }
-     //  console.log (JSON.stringify(systemList));
-        return JSON.parse(JSON.stringify(JSON.stringify(systemList)));
+       console.log (JSON.stringify(systemList));
+        return JSON.parse(JSON.stringify(systemList));
       }
       private async calculateDistance(x1: number, y1: number, z1: number, x2: number, y2: number, z2: number): Promise<number> {
         return Number(Math.sqrt( (x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2) + (z1 - z2) * (z1 - z2)).toFixed(2));

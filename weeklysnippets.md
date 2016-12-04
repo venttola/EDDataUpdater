@@ -12,3 +12,6 @@
 ##### Jukka-Pekka Venttola:
 * Toteutti palvelinpään toiminnallisuuden NodeJS:llä + TypeScript
 * Suunnitteli palvelimen tarjoaman REST-rajapinnan
+* Oppi litää TypeScriptistä ja erityisesti sen, että taulukoiden käsittely on hankalaa, kun ei ole elegantimpia tietorakenteita käytössä.
+* Palautteli mieliin Angularia ja tutustui Angular2:n uudistuneeseen rakenteeseen.
+* Päivitti rajapintaa apiDocia hyväksi käyttäen.
