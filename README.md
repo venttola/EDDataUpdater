@@ -1,5 +1,5 @@
 # EDData Updater
-This is the TUT PalPo course excercise.
+This is the TUT PalPo course excercise. It is done by Jukka-Pekka Venttola (jukka-pekka.venttola@student.tut.fi) and Lauri Laaksonen (lauri.k.laaksonen@student.tut.fi).
 
 EDDN Ship(and in future some other data as well) data updater.
 
